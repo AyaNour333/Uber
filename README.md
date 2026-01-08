@@ -1,7 +1,5 @@
 # Welcome to my Full Stack Uber Clone 👋
-(<img width="1035" height="301" alt="Screenshot 2026-01-08 193326" src="https://github.com/user-attachments/assets/f2d11576-73ad-4559-b979-3236ba55d75a" />
-
-# Full Stack Uber Clone
+<img width="1035" height="301" alt="Screenshot 2026-01-08 193326" src="https://github.com/user-attachments/assets/f2d11576-73ad-4559-b979-3236ba55d75a" />
 
 ## 🤖 Introduction
 
