@@ -1,5 +1,6 @@
 # Welcome to my Full Stack Uber Clone 👋
-![Uber Clone Banner](<img width="3600" height="1040" alt="image" src="https://github.com/user-attachments/assets/3e354687-26c8-486f-a7c5-7a865ce82edd" />) 
+![Uber Clone Banner](<img width="1035" height="301" alt="Screenshot 2026-01-08 193326" src="https://github.com/user-attachments/assets/f2d11576-73ad-4559-b979-3236ba55d75a" />
+) 
 
 
 # Full Stack Uber Clone
