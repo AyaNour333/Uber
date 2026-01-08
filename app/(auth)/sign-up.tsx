@@ -25,18 +25,15 @@ export default function SignUp() {
     const { isLoaded, signUp, setActive } = useSignUp()
     const router = useRouter()
 
-    // Handle submission of sign-up form
     const onSignUpPress = async () => {
         if (!isLoaded) return
 
-        // Start sign-up process using email and password provided
         try {
         await signUp.create({
             emailAddress:form.email,
             password:form.password,
         })
 
-        // Send user an email with verification code
         await signUp.prepareEmailAddressVerification({ strategy: 'email_code' })
 
         setVerification({
@@ -48,17 +45,13 @@ export default function SignUp() {
         }
     }
 
-    // Handle submission of verification form
     const onVerifyPress = async () => {
         if (!isLoaded) return
         try {
-        // Use the code the user provided to attempt verification
         const signUpAttempt = await signUp.attemptEmailAddressVerification({
             code:verification.code,
         })
-        // If verification was completed, set the session to active
         if (signUpAttempt.status === 'complete') {
-            // TODO : create database user !
             await fetchAPI('/(api)/user',{
                 method:'POST',
                 body: JSON.stringify({
@@ -70,8 +63,6 @@ export default function SignUp() {
             await setActive({ session: signUpAttempt.createdSessionId })
             setVerification({...verification,state:'success'})
         } else {
-            // If the status is not complete, check why. User may need to
-            // complete further steps.
             setVerification({
                 ...verification,
                 state:'failed',
@@ -87,21 +78,6 @@ export default function SignUp() {
         }
     }
 
-    // if (verification.state==="pending") {
-    //     return (
-    //     <>
-    //         <Text>Verify your email</Text>
-    //         <TextInput
-    //         value={verification.code}
-    //         placeholder="Enter your verification code"
-    //         onChangeText={(code) => setVerification({...verification,code})}
-    //         />
-    //         <TouchableOpacity onPress={onVerifyPress}>
-    //         <Text>Verify</Text>
-    //         </TouchableOpacity>
-    //     </>
-    //     )
-    // }
     return (
         <SafeAreaView className='flex-1'>
             <View className='flex-1'>

@@ -16,11 +16,9 @@ export default function SignIn() {
     const { signIn, setActive, isLoaded } = useSignIn()
     const router = useRouter()
 
-    // Handle the submission of the sign-in form
     const onSignInPress = async () => {
         if (!isLoaded) return
 
-        // Start the sign-in process using the email and password provided
         try {
         const signInAttempt = await signIn.create({
             identifier: form.email,
@@ -31,12 +29,7 @@ export default function SignIn() {
             await setActive({ session: signInAttempt.createdSessionId })
             router.replace('/(root)/(tabs)/Home')
         } 
-    //     else if (signInAttempt.status === "needs_second_factor") {
-    //         console.log("2FA Required");
-    //         // Logic to prepare 2FA:
-    //         // await attempt.prepareFirstFactor({ strategy: 'email_code' });
-    //         // router.push('/verify-2fa'); 
-    // }
+    
         else {
             console.error(JSON.stringify(signInAttempt, null, 2))
         }

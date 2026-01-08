@@ -1,7 +1,5 @@
 import Stripe from 'stripe'
 
-// intent allow our users to get the possibility to pay
-// On Node.js server
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 export async function POST(request: Request){
     const body = await request.json();

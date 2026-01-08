@@ -11,7 +11,6 @@ export default function OAuth() {
     const { startSSOFlow } = useSSO()
     const handleGoogleSignIn = useCallback(async () => {
             try {
-            // Start the authentication process by calling `startSSOFlow()`
             const { createdSessionId, setActive, signUp } = await startSSOFlow({
                 strategy: 'oauth_google',
                 redirectUrl: AuthSession.makeRedirectUri({
@@ -20,7 +19,6 @@ export default function OAuth() {
                 }),
             })
 
-            // If sign in was successful, set the active session
             if (createdSessionId && setActive) {
                 setActive({session: createdSessionId,})
                 if(signUp?.createdUserId){

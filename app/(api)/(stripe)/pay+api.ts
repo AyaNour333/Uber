@@ -1,6 +1,5 @@
 import Stripe from 'stripe'
 
-// we are actually allowing user to pay based on provided payment intent
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 export async function POST(request: Request){
     try{
